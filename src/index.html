@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>SHINGENMAX</title>
-	<link rel="icon" type="image/png" href="images/favicon.ico">
+	<link rel="icon" type="image/png" href="<%= require('./images/favicon.ico') %>">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,14 +13,15 @@
 		href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
 		rel="stylesheet">
 
-	<link rel="stylesheet" href="fonts/icons-linear.css">
-	<link rel="stylesheet" href="fonts/icons-fontawesome/css/all.min.css">
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/style-responsive.css">
+	<% for (const css of htmlWebpackPlugin.files.css) { %>
+		<link rel="stylesheet" href="<%= css %>">
+	<% } %>
 
 	<script src="js/jquery.js"></script>
-	<script src="js/scripts.js"></script>
-	<script src="js/menuscript.js"></script>
+
+	<!-- <%= htmlWebpackPlugin.files.js.filter(js => js.toLowerCase().includes('jquery')).map(js => `<script src="${js}"></script>`).join('') %> -->
+	<%= htmlWebpackPlugin.files.js.filter(js => js.toLowerCase().includes('scripts')).map(js => `<script src="${js}"></script>`).join('') %>
+	<%= htmlWebpackPlugin.files.js.filter(js => js.toLowerCase().includes('menuscript')).map(js => `<script src="${js}"></script>`).join('') %>
 </head>
 
 <body id="home">
@@ -124,8 +125,8 @@
 				</div>
 
 				<div class="imagearea">
-					<img src="images/pexels-jsme-mila-523821574-16364305.jpg" alt="" />
-					<img src="images/pexels-jsme-mila-523821574-18429370.jpg" alt="" />
+					<img src="<%= require('./images/pexels-jsme-mila-523821574-16364305.jpg') %>" alt="" />
+					<img src="<%= require('./images/pexels-jsme-mila-523821574-18429370.jpg') %>" alt="" />
 				</div>
 			</div>
 		</div>
@@ -141,7 +142,7 @@
 
 			<div class="menuitems_wrap">
 				<div class="item">
-					<img src="images/pexels-jsme-mila-523821574-18429371.jpg" alt="">
+					<img src="<%= require('./images/pexels-jsme-mila-523821574-18429371.jpg') %>" alt="" />
 					<!-- <h6>Breakfast</h6> -->
 					<h5>Community Engagement</h5>
 					<p>Hosting workshops and events to promote arts appreciation and connect residents with local artists and performers.</p>
@@ -149,7 +150,7 @@
 
 
 				<div class="item">
-					<img src="images/pexels-jsme-mila-523821574-18429372.jpg" alt="">
+					<img src="<%= require('./images/pexels-jsme-mila-523821574-18429372.jpg') %>" alt="" />
 					<!-- <h6>Breakfast</h6> -->
 					<h5>Performing Arts Support</h5>
 					<p>Supporting performances with logistical assistance and resources for rehearsals and events.</p>
@@ -157,7 +158,7 @@
 
 
 				<div class="item">
-					<img src="images/pexels-jsme-mila-523821574-18429373.jpg" alt="">
+					<img src="<%= require('./images/pexels-jsme-mila-523821574-18429373.jpg') %>" alt="" />
 					<!-- <h6>Brunch</h6> -->
 					<h5>Art Operations</h5>
 					<p>Curating and promoting art exhibitions while supporting creative projects that engage the community.</p>
@@ -166,7 +167,7 @@
 
 
 				<div class="item">
-					<img src="images/pexels-jsme-mila-523821574-18429461.jpg" alt="">
+					<img src="<%= require('./images/pexels-jsme-mila-523821574-18429461.jpg') %>" alt="" />
 					<!-- <h6>Lunch</h6> -->
 					<h5>Residential Care Services</h5>
 					<p>Providing comprehensive care for the elderly and individuals with disabilities, including daily support and creative activities.</p>
@@ -212,7 +213,7 @@
 		</div>
 	</footer>
 
-	<script src="js/bliss.js"></script>
+	<%= htmlWebpackPlugin.files.js.filter(js => js.toLowerCase().includes('bliss')).map(js => `<script src="${js}"></script>`).join('') %>
 	<script>
 		var dateobj = new Date();
 		var getyear = dateobj.getFullYear();

@@ -1,0 +1,1 @@
+(()=>{"use strict";window.menuid="#headnav",window.scrollspeed=1200,window.menu_active_class="active"})();

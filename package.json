@@ -1,0 +1,24 @@
+{
+  "name": "hk-shingenmax-ltd",
+  "version": "1.0.0",
+  "private": true,
+  "main": "dist/index.html",
+  "scripts": {
+    "start": "webpack server --config webpack.config.js",
+    "build": "webpack --config webpack.config.js"
+  },
+  "author": "Ethan",
+  "license": "ISC",
+  "description": "Official website of SHINGENMAX LTD.",
+  "devDependencies": {
+    "css-minimizer-webpack-plugin": "^7.0.0",
+    "mini-css-extract-plugin": "^2.9.2",
+    "webpack-dev-server": "^5.1.0",
+    "css-loader": "^7.1.2",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.6.3",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4"
+  }
+}
